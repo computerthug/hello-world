@@ -1,14 +1,9 @@
-#!/usr/bin/env groovy
-
-
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
-    }
+    agent { docker { image 'maven:3.3.3' } }
     stages {
-        stage('Test') {
+        stage('build') {
             steps {
-                sh 'ls -al'
+                sh 'mvn --version'
             }
         }
     }
